@@ -114,6 +114,7 @@ class PostsController extends Controller
             return redirect('/posts')->with('error', 'Unauthorized Page');
         }
 
+
         return view('posts.edit')->with('post', $post);
     }
 
@@ -144,6 +145,9 @@ class PostsController extends Controller
             // Upload Image
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
         }
+
+        //hapus image
+        
 
         // Create Post
         $post = Post::find($id);
